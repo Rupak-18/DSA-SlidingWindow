@@ -13,13 +13,13 @@ class Solution {
             //     l++;
             // }
 
-            // Step1: using if condition
+            // Step2: using if condition
             if(zeros > k) {
                 if(nums[l] == 0)
                     zeros--;
                 l++;
             }
-            
+
             if(zeros <= k) {
                 int len = r - l + 1;
                 maxLen = Math.max(maxLen, len);
