@@ -4,26 +4,21 @@ class Solution {
         int maxLen = 0;
         int maxFreq = 0;
         int n = s.length();
-        Map<Character, Integer> map = new HashMap<>();
+        int[] hash = new int[26];
 
         while(r < n) {
             char c = s.charAt(r);
-            map.put(c, map.getOrDefault(c, 0) + 1);
-            maxFreq = Math.max(maxFreq, map.get(c));
+            hash[c - 65]++; 
+            maxFreq = Math.max(maxFreq, hash[c - 65]);
             int len = r - l + 1;
-            int count = len - maxFreq;
-            if(count <= k)
-                maxLen = Math.max(maxLen, len);
-            
-            while(count > k) {
+            int count = len - maxFreq; 
+            if(count > k) {
                 char ch = s.charAt(l);
-                map.put(ch, map.getOrDefault(ch, 0) - 1);
+                hash[ch - 65]--;
                 l++;
-                maxFreq = Math.max(maxFreq, map.get(ch));
-                len = r - l + 1;
-                count = len - maxFreq;
-                if(count <= k)
-                    maxLen = Math.max(maxLen, len); 
+            }
+            else {
+                maxLen = Math.max(maxLen, len);
             }
             r++;
         }
