@@ -19,9 +19,9 @@ class Solution {
     }
 
     public int numSubarraysWithSum(int[] nums, int goal) {
-        int sum1 = countSubArray(nums, goal);
-        int sum2 = countSubArray(nums, goal - 1);
+        int atMostGoal = countSubArray(nums, goal);
+        int atMostGoalMinusOne = countSubArray(nums, goal - 1);
 
-        return sum1 - sum2;
+        return atMostGoal - atMostGoalMinusOne;
     }
 }
