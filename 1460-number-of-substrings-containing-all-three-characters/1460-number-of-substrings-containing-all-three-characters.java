@@ -10,7 +10,8 @@ class Solution {
             char c = s.charAt(r);
             hash[c - 'a'] = r;
             if(hash[0] != -1 && hash[1] != -1 && hash[2] != -1) {
-                count += Math.min((Math.min(hash[0], hash[1])), hash[2]) + 1;
+                l = Math.min((Math.min(hash[0], hash[1])), hash[2]);
+                count += l + 1;
             }
             r++;
         }
