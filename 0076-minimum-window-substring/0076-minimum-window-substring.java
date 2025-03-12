@@ -31,7 +31,8 @@ class Solution {
             r++;
         }
 
-        String str = (startIndex == -1) ? "" : s.substring(startIndex, startIndex +minLength);
+        String str = (startIndex == -1) ? 
+                        "" : s.substring(startIndex, startIndex +minLength);
         return str;
     }
 }
